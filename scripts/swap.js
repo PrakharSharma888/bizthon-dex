@@ -1,6 +1,5 @@
 const { ethers } = require("hardhat");
-const { parseUnits, formatUnits } = require("ethers");
-
+const { parseUnits,formatUnits } = require("ethers");
 async function main() {
   // Deploy TokenA
   const Token = await ethers.getContractFactory("MyToken");
@@ -9,6 +8,7 @@ const tokenA = await Token.deploy("TokenA", "TKA", ethers.utils.parseUnits("1000
   console.log("TokenA deployed to:", tokenA.address);
 
   // Deploy TokenB
+    // const TokenB = await ethers.getContractFactory("TokenB");
 const tokenB = await Token.deploy("TokenB", "TKB", ethers.utils.parseUnits("1000000", 18));
   await tokenB.deployed();
   console.log("TokenB deployed to:", tokenB.address);
